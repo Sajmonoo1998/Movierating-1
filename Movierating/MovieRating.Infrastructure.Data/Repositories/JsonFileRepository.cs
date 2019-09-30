@@ -5,7 +5,7 @@ using MovieRating.Core.DomainService;
 
 namespace MovieRating.Infrastructure.Data.Repositories
 {
-    public class JsonFileRepository : IRepository
+    public class JsonFileRepository 
 
     {
 

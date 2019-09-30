@@ -7,40 +7,40 @@ namespace MovieRating.Core.ApplicationService
 {
     public class MovieRatingService : IMovieRatingService
     {
-        private IRepository Repository;
+        private IMovieRatingRepository Repository;
 
-        public MovieRatingService(IRepository repository)
+        public MovieRatingService(IMovieRatingRepository repository)
         {
             Repository = repository;
         }
         public int MovieGradeNumberOfReviews(int movie, int grade)
         {
-            throw new NotImplementedException();
+            return Repository.MovieGradeNumberOfReviews(movie, grade);
         }
 
         public int AmountOfReviewsOfMovie(int movie)
         {
-            throw new NotImplementedException();
+            return Repository.AmountOfReviewsOfMovie(movie);
         }
 
         public double MovieAverageGrade(int movie)
         {
-            throw new NotImplementedException();
+            return Repository.MovieAverageGrade(movie);
         }
 
         public int AmountOfParticularGradeOfMovie(int movie, int grade)
         {
-            throw new NotImplementedException();
+            return Repository.AmountOfParticularGradeOfMovie(movie, grade);
         }
 
         public List<int> ListOfMoviesHavingTheMostFives()
         {
-            throw new NotImplementedException();
+            return Repository.ListOfMoviesHavingTheMostFives();
         }
 
         public List<int> TopRatedMoviesByAverageGrade(int amount)
         {
-            throw new NotImplementedException();
+            return Repository.TopRatedMoviesByAverageGrade(amount);
         }
     }
 }

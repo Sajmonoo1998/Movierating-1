@@ -7,35 +7,35 @@ namespace MovieRating.Core.ApplicationService.Impl
 {
     public class ReviewerRatingService : IReviewerRatingService
     {
-        private IRepository Repository;
+        private IReviewerRatingRepository Repository;
 
-        public ReviewerRatingService(IRepository repository)
+        public ReviewerRatingService(IReviewerRatingRepository repository)
         {
             Repository = repository;
         }
         public int ReviewerGradesAmount(int reviewer)
         {
-            throw new NotImplementedException();
+            return Repository.ReviewerGradesAmount(reviewer);
         }
 
         public double ReviewerAverageGrading(int reviewer)
         {
-            throw new NotImplementedException();
+            return Repository.ReviewerAverageGrading(reviewer);
         }
 
         public int ReviewerGivenMostReviews()
         {
-            throw new NotImplementedException();
+            return Repository.ReviewerGivenMostReviews();
         }
 
         public List<int> ReviewerRatedMoviesSortedByRateDescending(int reviewer)
         {
-            throw new NotImplementedException();
+            return Repository.ReviewerRatedMoviesSortedByRateDescending(reviewer);
         }
 
         public List<int> ReviewersWhoRatedMovieSortedByGradeGivenByReviewerDescending(int movie)
         {
-            throw new NotImplementedException();
+            return Repository.ReviewersWhoRatedMovieSortedByGradeGivenByReviewerDescending(movie);
         }
     }
 }
