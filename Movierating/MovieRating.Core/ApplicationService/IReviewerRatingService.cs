@@ -6,10 +6,11 @@ namespace MovieRating.Core.ApplicationService
 {
     public interface IReviewerRatingService
     {
-        int ReviewerGradesAmount(int reviewer);
-        double ReviewerAverageGrading(int reviewer);
-        int ReviewerGivenMostReviews();
-        List<int> ReviewerRatedMoviesSortedByRateDescending(int reviewer);
-        List<int> ReviewersWhoRatedMovieSortedByGradeGivenByReviewerDescending(int movie);
+        int ReviewerGradesAmount(int reviewer); // 1 
+        double ReviewerAverageGrade(int reviewer); // 2 
+        int AmountOfParticularGradeGivenByReviewer(int reviewer, int grade); // 3
+        int TopReviewer(); // 8
+        List<int> ReviewerMoviesSortByGradDesc(int reviewer); // 10 
+        List<int> MovieRevieversSortByGradDesc(int movie); // 11
     }
 }

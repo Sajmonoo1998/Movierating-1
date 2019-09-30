@@ -13,14 +13,14 @@ namespace MovieRating.Core.ApplicationService
         {
             Repository = repository;
         }
-        public int MovieGradeNumberOfReviews(int movie, int grade)
+        public int GradeAmountInMovie(int movie, int grade) //
         {
-            return Repository.MovieGradeNumberOfReviews(movie, grade);
+            return Repository.GradeAmountInMovie(movie, grade);
         }
 
-        public int AmountOfReviewsOfMovie(int movie)
+        public int MovieReviewsAmount(int movie) //
         {
-            return Repository.AmountOfReviewsOfMovie(movie);
+            return Repository.MovieReviewsAmount(movie);
         }
 
         public double MovieAverageGrade(int movie)
@@ -28,19 +28,16 @@ namespace MovieRating.Core.ApplicationService
             return Repository.MovieAverageGrade(movie);
         }
 
-        public int AmountOfParticularGradeOfMovie(int movie, int grade)
-        {
-            return Repository.AmountOfParticularGradeOfMovie(movie, grade);
-        }
+       
 
         public List<int> ListOfMoviesHavingTheMostFives()
         {
             return Repository.ListOfMoviesHavingTheMostFives();
         }
 
-        public List<int> TopRatedMoviesByAverageGrade(int amount)
+        public List<int> TopRatedMovies(int amount)
         {
-            return Repository.TopRatedMoviesByAverageGrade(amount);
+            return Repository.TopRatedMovies(amount);
         }
     }
 }

@@ -18,24 +18,29 @@ namespace MovieRating.Core.ApplicationService.Impl
             return Repository.ReviewerGradesAmount(reviewer);
         }
 
-        public double ReviewerAverageGrading(int reviewer)
+        public double ReviewerAverageGrade(int reviewer)
         {
-            return Repository.ReviewerAverageGrading(reviewer);
+            return Repository.ReviewerAverageGrade(reviewer);
         }
 
-        public int ReviewerGivenMostReviews()
+        public int TopReviewer()
         {
-            return Repository.ReviewerGivenMostReviews();
+            return Repository.TopReviewer();
         }
 
-        public List<int> ReviewerRatedMoviesSortedByRateDescending(int reviewer)
+        public List<int> ReviewerMoviesSortByGradDesc(int reviewer)
         {
-            return Repository.ReviewerRatedMoviesSortedByRateDescending(reviewer);
+            return Repository.ReviewerMoviesSortByGradDesc(reviewer);
         }
 
-        public List<int> ReviewersWhoRatedMovieSortedByGradeGivenByReviewerDescending(int movie)
+        public List<int> MovieRevieversSortByGradDesc(int movie)
         {
-            return Repository.ReviewersWhoRatedMovieSortedByGradeGivenByReviewerDescending(movie);
+            return Repository.MovieRevieversSortByGradDesc(movie);
+        }
+
+        public int AmountOfParticularGradeGivenByReviewer(int reviewer, int grade)
+        {
+            return Repository.AmountOfParticularGradeGivenByReviewer(int reviewer, int grade);
         }
     }
 }

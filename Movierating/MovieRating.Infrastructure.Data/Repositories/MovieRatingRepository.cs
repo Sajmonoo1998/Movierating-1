@@ -6,12 +6,7 @@ namespace MovieRating.Infrastructure.Data.Repositories
 {
     public class MovieRatingRepository : IMovieRatingRepository
     {
-        public int AmountOfParticularGradeOfMovie(int movie, int grade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int AmountOfReviewsOfMovie(int movie)
+        public int GradeAmountInMovie(int movie, int grade)
         {
             throw new NotImplementedException();
         }
@@ -26,12 +21,12 @@ namespace MovieRating.Infrastructure.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public int MovieGradeNumberOfReviews(int movie, int grade)
+        public int MovieReviewsAmount(int movie)
         {
             throw new NotImplementedException();
         }
 
-        public List<int> TopRatedMoviesByAverageGrade(int amount)
+        public List<int> TopRatedMovies(int amount)
         {
             throw new NotImplementedException();
         }

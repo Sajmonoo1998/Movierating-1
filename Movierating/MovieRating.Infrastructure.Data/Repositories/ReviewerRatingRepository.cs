@@ -7,12 +7,12 @@ namespace MovieRating.Infrastructure.Data.Repositories
 {
     public class ReviewerRatingRepository : IReviewerRatingRepository
     {
-        public double ReviewerAverageGrading(int reviewer)
+        public double ReviewerAverageGrade(int reviewer)
         {
             throw new NotImplementedException();
         }
 
-        public int ReviewerGivenMostReviews()
+        public int TopReviewer()
         {
             throw new NotImplementedException();
         }
@@ -22,12 +22,17 @@ namespace MovieRating.Infrastructure.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public List<int> ReviewerRatedMoviesSortedByRateDescending(int reviewer)
+        public List<int> ReviewerMoviesSortByGradDesc(int reviewer)
         {
             throw new NotImplementedException();
         }
 
-        public List<int> ReviewersWhoRatedMovieSortedByGradeGivenByReviewerDescending(int movie)
+        public List<int> MovieRevieversSortByGradDesc(int movie)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int AmountOfParticularGradeGivenByReviewer(int reviewer, int grade)
         {
             throw new NotImplementedException();
         }

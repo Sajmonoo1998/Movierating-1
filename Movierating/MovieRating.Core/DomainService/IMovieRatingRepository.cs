@@ -6,11 +6,10 @@ namespace MovieRating.Core.DomainService
 {
     public interface IMovieRatingRepository
     {
-        int MovieGradeNumberOfReviews(int movie, int grade);
-        int AmountOfReviewsOfMovie(int movie);
+        int GradeAmountInMovie(int movie, int grade); //
+        int MovieReviewsAmount(int movie);//
         double MovieAverageGrade(int movie);
-        int AmountOfParticularGradeOfMovie(int movie, int grade);
         List<int> ListOfMoviesHavingTheMostFives();
-        List<int> TopRatedMoviesByAverageGrade(int amount);
+        List<int> TopRatedMovies(int amount);
     }
 }

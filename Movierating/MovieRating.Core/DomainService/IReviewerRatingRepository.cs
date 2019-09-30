@@ -7,9 +7,10 @@ namespace MovieRating.Core.DomainService
     public interface IReviewerRatingRepository
     {
         int ReviewerGradesAmount(int reviewer);
-        double ReviewerAverageGrading(int reviewer);
-        int ReviewerGivenMostReviews();
-        List<int> ReviewerRatedMoviesSortedByRateDescending(int reviewer);
-        List<int> ReviewersWhoRatedMovieSortedByGradeGivenByReviewerDescending(int movie);
+        double ReviewerAverageGrade(int reviewer);
+        int TopReviewer();
+        int AmountOfParticularGradeGivenByReviewer(int reviewer, int grade);
+        List<int> ReviewerMoviesSortByGradDesc(int reviewer);
+        List<int> MovieRevieversSortByGradDesc(int movie);
     }
 }
