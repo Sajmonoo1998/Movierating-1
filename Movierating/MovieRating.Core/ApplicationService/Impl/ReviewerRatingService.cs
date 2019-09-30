@@ -40,7 +40,7 @@ namespace MovieRating.Core.ApplicationService.Impl
 
         public int AmountOfParticularGradeGivenByReviewer(int reviewer, int grade)
         {
-            return Repository.AmountOfParticularGradeGivenByReviewer(int reviewer, int grade);
+            return Repository.AmountOfParticularGradeGivenByReviewer( reviewer,  grade);
         }
     }
 }
