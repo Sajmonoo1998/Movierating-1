@@ -23,9 +23,9 @@ namespace MovieRating.Core.ApplicationService.Impl
             return Repository.ReviewerAverageGrade(reviewer);
         }
 
-        public int TopReviewer()
+        public List<int> TopReviewer()
         {
-            return Repository.TopReviewer();
+            return Repository.TopReviewers();
         }
 
         public List<int> ReviewerMoviesSortByGradDesc(int reviewer)

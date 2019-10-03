@@ -12,7 +12,7 @@ namespace MovieRating.Infrastructure.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public int TopReviewer()
+        public List<int> TopReviewers()
         {
             throw new NotImplementedException();
         }
