@@ -3,13 +3,14 @@ using MovieRating.Core.DomainService;
 using MovieRating.Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace XUnitTestProject1
 {
-   public class FakeReviewerRepo : IReviewerRatingRepository
+    public class FakeReviewerRepo : IReviewerRatingRepository
     {
-        List<Rating> Ratings = new List<Rating>();
+       private readonly List<Rating> Ratings = new List<Rating>();
 
         public void Add(Rating movieRating)
         {
@@ -17,54 +18,29 @@ namespace XUnitTestProject1
         }
         public int AmountOfParticularGradeGivenByReviewer(int reviewer, int grade)
         {
-            var gradeAmount = 0;
-            foreach (var rating in Ratings)
-            {
-                if (rating.ReviewerId == reviewer && rating.Grade == grade)
-                    gradeAmount++;
-            }
-            return gradeAmount;
+            return Ratings.Where(r => r.ReviewerId == reviewer && r.Grade == grade).Count();
         }
 
-        public List<int> MovieRevieversSortByGradDesc(int movie)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public double ReviewerAverageGrade(int reviewer)
         {
-           
-            int sumOfGrades = 0;
-            int gradesAmount = ReviewerGradesAmount(reviewer);
-            if (gradesAmount == 0)
-                return 0;
-            else
-            {
-                foreach (var rating in Ratings)
-                {
-                    if (rating.ReviewerId == reviewer)
-                        sumOfGrades += rating.Grade;
-                }
-                return sumOfGrades / gradesAmount;
-            }
-
+            return Ratings.Where(r => r.ReviewerId == reviewer).Select(r => r.Grade).DefaultIfEmpty(0).Average();
         }
 
         public int ReviewerGradesAmount(int reviewer)
         {
-            var reviewerGradesAmout = 0;
-            foreach (var rating in Ratings)
-            {
-                if (rating.ReviewerId == reviewer)
-                    reviewerGradesAmout++;
-            }
-            return reviewerGradesAmout;
+            return Ratings.Where(r => r.ReviewerId == reviewer).Count();
         }
 
-        public List<int> ReviewerMoviesSortByGradDesc(int reviewer)
+        public IEnumerable<Rating> ReviewerMoviesSortByGradDesc(int reviewer)
         {
-            throw new NotImplementedException();
+            return Ratings.Where(r => r.ReviewerId == reviewer).OrderByDescending(r => r.Grade).ThenByDescending(r => r.Date);
         }
+        public IEnumerable<Rating> MovieRevieversSortByGradDesc(int movie)
+        {
+            return Ratings.Where(r => r.MovieId == movie).OrderByDescending(r => r.Grade).ThenByDescending(r => r.Date);
+        }
+
 
         public List<int> TopReviewers()
         {
@@ -75,9 +51,6 @@ namespace XUnitTestProject1
             }
             else
             {
-
-            
-
             foreach (var rating in Ratings)
             {
                     if (topReviewers.Count == 0)
@@ -89,7 +62,6 @@ namespace XUnitTestProject1
                     }
                     else if (!topReviewers.Contains(rating.ReviewerId) && ReviewerGradesAmount(topReviewers[0]) == ReviewerGradesAmount(rating.ReviewerId))
                     {
-
                         topReviewers.Add(rating.ReviewerId);
                     }
                 }
@@ -98,5 +70,7 @@ namespace XUnitTestProject1
             return topReviewers;
             
         }
+
+      
     }
 }

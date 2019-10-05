@@ -1,4 +1,5 @@
 ﻿using MovieRating.Core.DomainService;
+using MovieRating.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,12 +23,12 @@ namespace MovieRating.Infrastructure.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public List<int> ReviewerMoviesSortByGradDesc(int reviewer)
+        public IEnumerable<Rating> ReviewerMoviesSortByGradDesc(int reviewer)
         {
             throw new NotImplementedException();
         }
 
-        public List<int> MovieRevieversSortByGradDesc(int movie)
+        public IEnumerable<Rating> MovieRevieversSortByGradDesc(int movie)
         {
             throw new NotImplementedException();
         }

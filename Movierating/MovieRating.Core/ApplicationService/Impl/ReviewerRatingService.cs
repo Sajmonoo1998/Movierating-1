@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using MovieRating.Core.DomainService;
+using MovieRating.Core.Entities;
 
 namespace MovieRating.Core.ApplicationService.Impl
 {
@@ -28,12 +29,12 @@ namespace MovieRating.Core.ApplicationService.Impl
             return Repository.TopReviewers();
         }
 
-        public List<int> ReviewerMoviesSortByGradDesc(int reviewer)
+        public IEnumerable<Rating> ReviewerMoviesSortByGradDesc(int reviewer)
         {
             return Repository.ReviewerMoviesSortByGradDesc(reviewer);
         }
 
-        public List<int> MovieRevieversSortByGradDesc(int movie)
+        public IEnumerable<Rating> MovieRevieversSortByGradDesc(int movie)
         {
             return Repository.MovieRevieversSortByGradDesc(movie);
         }

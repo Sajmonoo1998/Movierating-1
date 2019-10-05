@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieRating.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace MovieRating.Core.ApplicationService
         double ReviewerAverageGrade(int reviewer); // 2 
         int AmountOfParticularGradeGivenByReviewer(int reviewer, int grade); // 3
         List<int> TopReviewer(); // 8
-        List<int> ReviewerMoviesSortByGradDesc(int reviewer); // 10 
-        List<int> MovieRevieversSortByGradDesc(int movie); // 11
+        IEnumerable<Rating> ReviewerMoviesSortByGradDesc(int reviewer); // 10 
+        IEnumerable<Rating> MovieRevieversSortByGradDesc(int movie); // 11
     }
 }

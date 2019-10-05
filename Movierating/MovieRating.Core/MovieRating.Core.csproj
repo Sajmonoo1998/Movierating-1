@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MovieRating.Core.Entities\MovieRating.Core.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
