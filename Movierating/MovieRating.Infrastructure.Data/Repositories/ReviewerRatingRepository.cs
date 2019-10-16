@@ -2,40 +2,53 @@
 using MovieRating.Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MovieRating.Infrastructure.Data.Repositories
 {
     public class ReviewerRatingRepository : IReviewerRatingRepository
     {
-        public double ReviewerAverageGrade(int reviewer)
+        private readonly List<Rating> Ratings = new List<Rating>();
+
+        public ReviewerRatingRepository(JsonFileRepository jsonFileRepository)
         {
-            throw new NotImplementedException();
+            Ratings = jsonFileRepository.ReadData().ToList();
+        }
+        public void Add(Rating movieRating)
+        {
+            Ratings.Add(movieRating);
+        }
+        public int AmountOfParticularGradeGivenByReviewer(int reviewer, int grade)
+        {
+            return Ratings.Where(r => r.ReviewerId == reviewer && r.Grade == grade).Count();
         }
 
-        public List<int> TopReviewers()
+
+        public double ReviewerAverageGrade(int reviewer)
         {
-            throw new NotImplementedException();
+            return Ratings.Where(r => r.ReviewerId == reviewer).Select(r => r.Grade).DefaultIfEmpty(0).Average();
         }
 
         public int ReviewerGradesAmount(int reviewer)
         {
-            throw new NotImplementedException();
+            return Ratings.Where(r => r.ReviewerId == reviewer).Count();
         }
 
         public IEnumerable<Rating> ReviewerMoviesSortByGradDesc(int reviewer)
         {
-            throw new NotImplementedException();
+            return Ratings.Where(r => r.ReviewerId == reviewer).OrderByDescending(r => r.Grade).ThenByDescending(r => r.Date);
         }
-
         public IEnumerable<Rating> MovieRevieversSortByGradDesc(int movie)
         {
-            throw new NotImplementedException();
+            return Ratings.Where(r => r.MovieId == movie).OrderByDescending(r => r.Grade).ThenByDescending(r => r.Date);
         }
 
-        public int AmountOfParticularGradeGivenByReviewer(int reviewer, int grade)
+
+        public List<int> TopReviewers()
         {
-            throw new NotImplementedException();
+            return Ratings.GroupBy(r => r.ReviewerId).OrderByDescending(r => r.Count()).Select(r => r.Key).ToList();
+
         }
     }
 }
